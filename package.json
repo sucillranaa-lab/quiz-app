@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "generate-quiz-index": "node scripts/generate-quiz-index.js",
+    "prestart": "npm run generate-quiz-index",
+    "prebuild:web": "npm run generate-quiz-index",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "npm run generate-quiz-index && expo start --web",
+    "build:web": "npm run generate-quiz-index && npx expo export --platform web"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",

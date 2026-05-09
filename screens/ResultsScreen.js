@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, View, Text, TouchableOpacity, SafeAreaView } from '../components/ui';
 import { Award, CheckCircle2, ClipboardList, Eye, Home, XCircle } from 'lucide-react-native';
-import { getQuiz, getQuestionsByQuizId } from '../db/database';
+import { getLatestProgressByQuizId, getQuiz, getQuestionsByQuizId } from '../db/database';
 
 export default function ResultsScreen({ navigation, route }) {
   const { quizId, score } = route.params;
@@ -16,8 +16,9 @@ export default function ResultsScreen({ navigation, route }) {
     try {
       const quizData = await getQuiz(quizId);
       const questions = await getQuestionsByQuizId(quizId);
+      const progress = await getLatestProgressByQuizId(quizId);
       setQuiz(quizData);
-      setTotalQuestions(questions.length);
+      setTotalQuestions(progress?.selectedCount || questions.length);
     } catch (error) {
       console.error('Error loading results:', error);
     }

@@ -44,6 +44,3 @@ temp/
 # Build
 dist/
 build/
-
-# Quiz Data - Local IndexedDB data (should not be committed)
-QuizData/

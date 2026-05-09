@@ -22,8 +22,9 @@ export const getQuizProgressPercent = (questionCount, progress) => {
     return 0;
   }
 
+  const totalCount = progress.selectedCount || questionCount;
   const answeredCount = getAnsweredCount(progress.answers || {});
-  return Math.min(100, Math.round((answeredCount / questionCount) * 100));
+  return Math.min(100, Math.round((answeredCount / totalCount) * 100));
 };
 
 export const isQuizComplete = (questions, answers) => {

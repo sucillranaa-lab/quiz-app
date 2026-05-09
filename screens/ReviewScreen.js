@@ -19,8 +19,9 @@ export default function ReviewScreen({ navigation, route }) {
     try {
       const questionsData = await getQuestionsByQuizId(quizId);
       const progress = await getLatestProgressByQuizId(quizId);
+      const selectedCount = progress?.selectedCount || questionsData.length;
 
-      setQuestions(questionsData);
+      setQuestions(questionsData.slice(0, selectedCount));
       setUserAnswers(progress?.answers || {});
     } catch (error) {
       console.error('Error loading review data:', error);

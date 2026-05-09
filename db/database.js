@@ -128,7 +128,7 @@ export const getLatestProgressByQuizId = async (quizId) => {
   })[0];
 };
 
-export const saveProgress = async (quizId, currentIndex, answers) => {
+export const saveProgress = async (quizId, currentIndex, answers, selectedCount) => {
   const db = await initDB();
   // Check for existing progress
   const existing = await getProgressByQuizId(quizId);
@@ -138,6 +138,7 @@ export const saveProgress = async (quizId, currentIndex, answers) => {
       ...existing,
       currentIndex,
       answers,
+      selectedCount: selectedCount || existing.selectedCount,
       updatedAt: new Date().toISOString()
     });
     return existing.id;
@@ -146,6 +147,7 @@ export const saveProgress = async (quizId, currentIndex, answers) => {
       quizId,
       currentIndex,
       answers,
+      selectedCount,
       completedAt: null,
       score: null,
       createdAt: new Date().toISOString(),
@@ -155,13 +157,14 @@ export const saveProgress = async (quizId, currentIndex, answers) => {
   }
 };
 
-export const completeQuiz = async (quizId, score) => {
+export const completeQuiz = async (quizId, score, selectedCount) => {
   const db = await initDB();
   const existing = await getProgressByQuizId(quizId);
 
   if (existing) {
     await db.put('progress', {
       ...existing,
+      selectedCount: selectedCount || existing.selectedCount,
       completedAt: new Date().toISOString(),
       score,
       updatedAt: new Date().toISOString()
@@ -173,6 +176,7 @@ export const completeQuiz = async (quizId, score) => {
     quizId,
     currentIndex: 0,
     answers: {},
+    selectedCount,
     completedAt: new Date().toISOString(),
     score,
     createdAt: new Date().toISOString(),
@@ -186,4 +190,15 @@ export const clearProgress = async (quizId) => {
   for (const p of items) {
     await db.delete('progress', p.id);
   }
+};
+
+export const clearAllData = async () => {
+  const db = await initDB();
+  const tx = db.transaction(['quizzes', 'questions', 'progress'], 'readwrite');
+  await Promise.all([
+    tx.objectStore('quizzes').clear(),
+    tx.objectStore('questions').clear(),
+    tx.objectStore('progress').clear()
+  ]);
+  await tx.done;
 };
