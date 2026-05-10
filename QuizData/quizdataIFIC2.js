@@ -793,7 +793,145 @@ export const IFIC_Practice_Test2 =[
     "options": ["1 and 4.", "1 and 2.", "2 and 3.", "3 and 4."],
     "correct": 1,
     "feedback": "Steady growth in clients and assets under management is desirable."
+  },
+    {
+    "id": 81,
+    "question": "81.What equity investment philosophy places greater emphasis on industry weighting than on security selection?",
+    "options": ["Growth investing.", "Growth at a reasonable price.", "Sector rotation.", "Momentum investing."],
+    "correct": 2,
+    "feedback": "Sector rotation is a portfolio manager’s attempt to profit through timing. It is based on the belief that different industries will perform well during certain stages of the economic cycle. Industries expected to outperform would be overweighted. More emphasis is placed on industry weighting than on security selection."
+  },
+  {
+    "id": 82,
+    "question": "82.A fund manager who utilizes an interest rate anticipation philosophy forecasts a rise in interest rates. What change in asset allocation should he implement?",
+    "options": ["Increase short-term T-bill and high coupon bond holdings.", "Increase long-term bond and low coupon bond holdings.", "Increase short-term T-bill and low coupon bond holdings.", "Increase long-term and high coupon bond holdings."],
+    "correct": 2,
+    "feedback": "Interest rate anticipation is a fixed-income investing philosophy that involves moving between long-term government bonds and very short-term T-bills, based on a forecast of interest rates over a certain time horizon. Price sensitivity to interest rate movements increases as the term to maturity increases and the coupon decreases. Therefore, to avoid a large capital loss if interest rates rise, the fund manager would decrease the fund's interest rate sensitivity."
+  },
+  {
+    "id": 83,
+    "question": "83. Your soon-to-be retired client has accumulated $700,000 in a mutual fund investment. He has consulted with you with respect to systematic withdrawal plans. His other sources of income in retirement are uncertain. He is not interested in leaving a legacy at his death. Which plan would best suit his needs?",
+    "options": ["Annuity.", "Ratio withdrawal plan.", "Fixed-dollar withdrawal plan.", "Life withdrawal plan."],
+    "correct": 0,
+    "feedback": "The client needs a steady source of income from his investment. This rules out a ratio withdrawal plan and a life withdrawal plan. With a fixed-dollar withdrawal plan his capital could be exhausted before his dies. He should choose an annuity that will pay a fixed amount every year until his death. If he lives beyond the guaranteed term, the annuity will cease with his death, but this fact is not important as he does not wish to leave a legacy."
+  },
+  {
+    "id": 84,
+    "question": "84.In what circumstance would an investor receive a T3 or T5 reporting a capital gain from a mutual fund investment?",
+    "options": ["When the value of the fund’s investments has risen.", "When the value of the investor’s fund units has risen.", "When the fund sells investments at a price higher than the average cost of the investment.", "When the investor sells her fund units at a price higher than their average cost."],
+    "correct": 2,
+    "feedback": "In the normal course of portfolio management, shares are bought and sold either at a gain or at a loss for the fund. By the end of the year, many funds will have generated net capital gains on their portfolio transactions. The capital gains are distributed in the form of a capital gains dividend reported on a T5 or T3."
+  },
+  {
+    "id": 85,
+    "question": "85.What value are withdrawals under a ratio withdrawal plan based upon?",
+    "options": ["Average of start and year-end portfolio value.", "Value at inception of plan.", "Current portfolio value.", "End of year portfolio value."],
+    "correct": 2,
+    "feedback": "Under a ratio withdrawal plan, the ratio is always based on the current portfolio value. Technically, this means that clients will never fully exhaust their mutual fund investment under this type of plan. Only in the unrealistic situation of a 100% payout ratio would the fund be completely paid out."
+  },
+  {
+    "id": 86,
+    "question": "86.What is the securities administrator’s power that is intended to ensure investors can make fully informed investment decisions?",
+    "options": ["Registration.", "Termination.", "Disclosure.", "Enforcement."],
+    "correct": 2,
+    "feedback": "The securities administrators ensure that all documents and other required information are prepared in accordance with requirements and provided to appropriate parties in a timely manner. The securities administrators also review all prospectuses for full, true and plain disclosure. Complete, accurate and timely disclosure allows clients to make fully informed investment decisions."
+  },
+  {
+    "id": 87,
+    "question": "87.When must client complaints be acknowledged in writing?",
+    "options": ["When the client has made a written complaint in letter format.", "When the client has made a written complaint in any format.", "When complaints are made repeatedly by the same client with respect to the same representative.", "Any time the client has made a verbal or written complaint."],
+    "correct": 1,
+    "feedback": "MFDA Policy No. 3 specifies the minimum procedures for dealing with written client complaints (including emails). All written client complaints must be acknowledged in writing."
+  },
+  {
+    "id": 88,
+    "question": "88.A mutual fund representative misrepresents the risks associated with a particular mutual fund in order to encourage a conservative client to purchase it. What part of MFDA Rule No. 2 “Business Conduct” did the representative violate?",
+    "options": ["Not engage in business conduct or practice that is unbecoming or detrimental to the public interest.", "Observe a high standard of ethics and conduct.", "Have such experience and training as it consistent with the standards acceptable to the industry.", "Deal fairly, honestly and in good faith with clients."],
+    "correct": 3,
+    "feedback": "MFDA Rule No 2 “Business Conduct” sets out the standards applicable to all MFDA members and their respective dealing representatives. In this case, the representative has not dealt honestly with the client by misrepresenting information."
+  },
+  {
+    "id": 89,
+    "question": "89.When can an individual legally start selling mutual funds?",
+    "options": ["Upon successful completion of the proficiency examination.", "Upon filing a registration application and paying the required registration fee.", "Upon receipt of notification of registration from the securities administrator.", "Upon completion of continuing education requirements."],
+    "correct": 2,
+    "feedback": "Despite receiving notification of successful completion of the required proficiency examination, filing a registration application and paying the required fee, an individual is not officially registered to sell mutual funds until notice has been received from the applicable securities administrator."
+  },
+  {
+    "id": 90,
+    "question": "90.Karen works Monday to Wednesday for a member of the MFDA as a dealing representative and Thursday and Friday as a language instructor at a local college. Client orders received on Thursdays and Fridays are held until Karen returns to work the following week. What requirement did the dealer fail to do in these circumstances?",
+    "options": ["The dealer must be aware of and approve of Karen’s other occupation.", "The dealer must maintain procedures to ensure continuous service to clients.", "Karen’s alternate employment must not bring the MFDA, its members or the mutual fund industry into disrepute.", "The dealer must maintain procedures to address any potential conflicts of interest."],
+    "correct": 1,
+    "feedback": "A mutual fund dealing representative who works for or is sponsored by a member of the MFDA may have, and continue in, another gainful occupation, provided that the dealer establishes and maintains procedures to ensure continuous service to clients. In this example, Karen’s clients are not receiving continuous service."
+  },
+  {
+    "id": 91,
+    "question": "91.A married couple is opening a spousal RRSP account in the name of the wife. The dealing representative gathers the information required on the NAAF, including the wife’s name, social insurance number, permanent address and investment objectives. The representative also gathers KYC information for both and informs them that leveraging is not permitted with respect to RRSP accounts. Which information was not required?",
+    "options": ["Wife’s KYC information.", "Wife’s social insurance number.", "Husband’s KYC information.", "Disclaimer with respect to leveraging."],
+    "correct": 2,
+    "feedback": "The investment experience and knowledge of all individuals who have trading authority over the account should be obtained, as well as KYC information for anyone with a financial interest in the account. For spousal RRSPs, the contributing spouse does not have a financial interest in the account, so KYC information is required for the non-contributing spouse only."
+  },
+  {
+    "id": 92,
+    "question": "92.A mutual fund sales representative receives a client’s purchase order for equity mutual funds and confirms that the order is appropriate based on the client’s recorded investment knowledge and risk profile. The client explains that she had inherited the funds from a family member. The client states her investment objective to be long term. The representative records this information and processes the order. What the representative doesn’t know is that the client has recently lost her job and is living on unemployment insurance. What step did the representative need to take in order to uphold her duty of care?",
+    "options": ["The representative should have verified that the client’s KYC information was updated before applying the suitability test.", "The representative should have applied due diligence in matching the order to the client’s KYC information.", "The representative should have probed the client’s understanding of equity funds.", "The representative should have applied the test of suitability to the unsolicited order."],
+    "correct": 0,
+    "feedback": "Duty of Care starts with the Know Your Client rule. It is impossible to apply due diligence and assess the suitability of an investment if the client’s information has not been updated. Client account documentation should reflect all material information about the client’s current status, and should be updated to reflect any material change to the client’s status in order to assure suitability of investment recommendations."
+  },
+  {
+    "id": 93,
+    "question": "93.A mutual fund sales representative is under pressure to meet certain sales objectives. However, he consistently ignores these quotas when making client recommendations. Which obligation has he followed?",
+    "options": ["The obligation to maintain a high standard of professional knowledge.", "The obligation to take appropriate cautions for potentially unsuitable investments.", "The obligations to put the client’s interests first.", "The obligation to keep client information confidential."],
+    "correct": 2,
+    "feedback": "The client’s interest must be the foremost consideration in all business dealings. In situations where you may have an interest that competes with that of the client, the client’s interest must be given priority."
+  },
+  {
+    "id": 94,
+    "question": "94.What personal information must be obtained from clients opening a non-registered account? 1. Date of birth. 2. Social insurance number. 3. Permanent address. 4. Full legal name.",
+    "options": ["1 and 4.", "2 and 3.", "3 and 4.", "1 and 2."],
+    "correct": 2,
+    "feedback": "The first step as a dealing representative is to obtain a client’s personal data including full legal name, permanent and mailing address, social insurance number and date of birth. While a permanent address is mandatory, providing a different mailing address is optional. Neither the social insurance number nor date of birth are mandatory for non-registered accounts, but both are highly recommended."
+  },
+  {
+    "id": 95,
+    "question": "95.A husband wishes to transfer some of his non-registered mutual fund holdings to his wife, but wants to maintain trading authority over the transferred assets. He also wishes to ensure that should she die the gift he is making will revert to him. What is the appropriate account type?",
+    "options": ["Open a tenants in common account.", "Open a nominee account.", "Open a joint account.", "Open an account in his wife’s name only."],
+    "correct": 2,
+    "feedback": "The husband would have no financial interest in a client name account, registered in his wife’s name only. A nominee account would transfer trading authority to a dealer or third-party administrator. In a tenants in common account, each spouse would have trading authority over his/her portion of the account. Therefore, the husband’s best option would be to open a joint account and retain full trading authority. A joint account would also offer the right of survivorship, which is not a feature of a tenants in common account."
+  },
+  {
+    "id": 96,
+    "question": "96.Jack and Jill hold a mutual fund account as tenants in common. What conditions would apply to their account? 1. Should either die, full ownership of the account would pass to the other. 2. Each would be the owner of 50% of the account’s assets. 3. Either could issue trading instructions on all account assets. 4. Each would be required to provide KYC information.",
+    "options": ["2 and 3.", "1 and 4.", "1 and 3.", "2 and 4."],
+    "correct": 3,
+    "feedback": "If more than one person owns an account and it is not specifically identified as being a joint account, each owner owns a pro- rata share of the account, unless ownership is divided in another manner and noted on the account. Where an account is held as tenants in common, there is no right of survivorship and each owner, unless otherwise specified, can only give instructions with regard to the pro-rata portion of the account."
+  },
+  {
+    "id": 97,
+    "question": "97.A dealing representative explains the past performance of a mutual fund to a potential client, discussing the annual simple returns and compound returns that the fund had earned. She concluded by indicating she expects the fund’s NAVPU was likely to rise at similar rates in the future, given the economic outlook. What unacceptable selling practice has occurred?",
+    "options": ["Representatives cannot quote a future purchase price.", "Representatives cannot promise NAVPU will increase by any amount.", "Representatives cannot comment upon the economic outlook.", "Representatives cannot discuss a fund’s past performance."],
+    "correct": 1,
+    "feedback": "There are a number of sales practices that are clearly illegal or otherwise unacceptable to securities regulators. A dealing representative may not make promises that the NAVPS or NAVPU of a fund will achieve a certain level or increase by any amount."
+  },
+  {
+    "id": 98,
+    "question": "98.Sofie is a busy mutual fund sales representative. She would like to move clients that are invested in low yielding cash accounts to her firm’s higher yielding proprietary money market mutual fund. She confirms the orders with the clients, then instructs her new sales assistant, who will write the IFC exam next week, to enter orders to buy units in this fund. How has Sofie violated the standards of conduct?",
+    "options": ["She failed to establish a scheduled review for her clients’ accounts.", "She violated no standards of conduct.", "She allowed an unregistered individual to process the order to buy units.", "She has done insufficient research and violated her due diligence requirement."],
+    "correct": 2,
+    "feedback": "Mutual fund sales representatives must be registered to sell mutual funds. This requires registration with the securities administrator in each province and territory in which the clients to whom they sell mutual funds reside. You must renew your registration as required by the provincial and territorial securities administrators and keep the administrators informed of material changes in the material information you provided on your registration application that could affect your registration status."
+  },
+  {
+    "id": 99,
+    "question": "99.What is the time period during which an individual must complete a training program once she starts acting as a dealing representative?",
+    "options": ["30 days.", "3 months.", "6 months.", "90 days."],
+    "correct": 3,
+    "feedback": "All mutual fund dealing representatives are required to complete a training program within 90 days from the day that they first start acting as a dealing representative and must be closely supervised for six months."
+  },
+  {
+    "id": 100,
+    "question": "100.A mutual fund sales representative is asked to make a presentation to an investment club. During the presentation he discusses personal experiences of a questionable nature. What aspect of Professionalism is relevant to this situation?",
+    "options": ["Other personal endeavours.", "Conduct of personal business.", "Solicitation of client business.", "Personal financial dealings with clients."],
+    "correct": 1,
+    "feedback": "The representative must take care to ensure that any publicly visible activity in which he participates is conducted responsibly and moderately so as not to present an unfavourable public image."
   }
-
-
 ]

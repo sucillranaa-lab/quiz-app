@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ActivityIndicator, RefreshControl } from 'react-native';
 import { View, Text, ScrollView, SafeAreaView, TouchableOpacity } from '../components/ui';
-import { GraduationCap, BookOpen, FileText, ChevronRight } from 'lucide-react-native';
+import { GraduationCap, BookOpen, FileText, ChevronRight, Shuffle } from 'lucide-react-native';
 
 import { getAllQuizzes, getQuestionsByQuizId, getProgressByQuizId, clearProgress, addQuiz, addQuestions, clearAllData, initDB } from '../db/database';
 import QuizCard from '../components/QuizCard';
 import { quizSources } from '../QuizData/index';
+import { isDev } from '../utils/env';
 
 const seedDatabase = async () => {
   try {
@@ -83,6 +84,14 @@ export default function HomeScreen({ navigation }) {
   const handleRestart = async (quizId) => {
     await clearProgress(quizId);
     navigation.navigate('Quiz', { quizId, startFresh: true });
+  };
+
+  const handleRandomQuiz = () => {
+    navigation.navigate('Quiz', { quizId: 'random', startFresh: true, randomMode: true });
+  };
+
+  const handleShowAll = (quiz) => {
+    navigation.navigate('AllQuestions', { quizId: quiz.id, quizTitle: quiz.title });
   };
 
   if (loading) {
@@ -189,13 +198,38 @@ export default function HomeScreen({ navigation }) {
               <QuizCard
                 key={quiz.id}
                 quiz={quiz}
+                isDev={isDev}
                 questionCount={quizData[quiz.id]?.questionCount || 0}
                 progress={quizData[quiz.id]?.progress || null}
                 onStart={() => handleStart(quiz.id)}
                 onResume={quizData[quiz.id]?.progress ? () => handleResume(quiz.id) : null}
                 onRestart={quizData[quiz.id]?.progress ? () => handleRestart(quiz.id) : null}
+                onShowAll={() => handleShowAll(quiz)}
               />
             ))}
+
+            {/* Random Quiz card */}
+            <TouchableOpacity
+              onPress={handleRandomQuiz}
+              activeOpacity={0.85}
+              className="bg-white border-2 border-purple-200 rounded-2xl p-5 mt-3"
+              style={{ borderStyle: 'dashed' }}
+            >
+              <View className="flex-row items-center justify-between">
+                <View className="flex-row items-center flex-1 mr-3">
+                  <View className="w-12 h-12 rounded-2xl bg-purple-100 items-center justify-center mr-4">
+                    <Shuffle size={24} color="#7c3aed" />
+                  </View>
+                  <View className="flex-1">
+                    <Text className="text-slate-950 text-lg font-bold">Random Quiz</Text>
+                    <Text className="text-slate-500 text-sm mt-0.5">
+                      Random questions from all {totalExams} exam sets — {totalQuestions} total
+                    </Text>
+                  </View>
+                </View>
+                <ChevronRight size={20} color="#7c3aed" />
+              </View>
+            </TouchableOpacity>
           </View>
         )}
       </ScrollView>

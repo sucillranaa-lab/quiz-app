@@ -31,7 +31,7 @@ export const quizData = [
     options: ["Structural.", "Frictional.", "Cyclical.", "Natural."], 
     correct: 0, feedback: "Structural unemployment results from changes in the economy, such as technological advances." },
 
-  { id: 9, question: "The demand for blue widgets increases sharply... What can be said about the law of supply?", 
+  { id: 9, question: "The demand for blue widgets increases sharply due to a newspaper report that using blue widgets improves recovery from influenza. What can be said about the law of supply?", 
     options: ["Price and production both decreases.", "Price increases and production decreases.", "Price decreases and production increases.", "Price and production both increases."], 
     correct: 3, feedback: "When demand is greater than supply, the price increases, and producers increase production." },
 
@@ -40,12 +40,12 @@ export const quizData = [
     correct: 2, feedback: "(146.9 - 140.6) / 140.6 × 100 = 4.48%" },
 
   // Continuing up to 100...
-  { id: 11, question: "Gary chooses not to recommend that his client sell a current mutual fund... What responsibility applies?", 
+  { id: 11, question: "Gary chooses not to recommend that his client sell a current mutual fund to purchase a similar new mutual fund despite pressure to meet a sales target for the new fund. What responsibility applies to Gary's action?", 
     options: ["Legal.", "Compliance.", "Ethical.", "Professional."], 
     correct: 2, feedback: "Gary is fulfilling his ethical responsibility." },
 
   { id: 12, question: "What does suitability mean?", 
-    options: ["Recommendations are not based on the personal...","The investor’s major concerns are addressed.","Understanding the personal...","Recommendations are appropriate for the client’s unique situation..."], 
+    options: ["Recommendations are not based on the personal and financial knowledge of the client","The investor’s major concerns are addressed.","Understanding the personal and financial knowledge of the client","Recommendations are appropriate for the client’s unique situation and investment objectives."], 
     correct: 3, feedback: "Suitability means ensuring that all recommendations are appropriate for the client’s unique situation..." },
 
   { id: 13, question: "Which organization regulates mutual and investment funds?", 
@@ -183,7 +183,7 @@ export const quizData = [
   },
   {
     id: 26,
-    question: "Ian is 25, employed, and has no dependents. What asset allocation would typically suit him?",
+    question: "Ian is 25, employed, and has no dependents. He has no current financial or family obligations. He has asked for your recommendation for investing a 50,000$ inheritance. What asset allocation would typically suit him?",
     options: [
       "50% in equity funds, 20% in a bond fund and 30% in a money market fund.",
       "10% in a bond fund, 80% in equity funds, 10% in a money market fund.",
@@ -195,14 +195,14 @@ export const quizData = [
   },
   {
     id: 27,
-    question: "Your client wants to purchase a mutual fund based on a “hot tip” from a friend. What bias is he most likely affected by?",
+    question: "Your client wants to purchase a mutual fund based on a “hot tip” from a friend who has been a successful investor. What bias is he most likely affected by?",
     options: ["Endowment.", "Hindsight.", "Availability.", "Overconfidence."],
     correct: 3,
     feedback: "Overconfidence is defined generally as unwarranted faith in one’s intuitive reasoning, judgements and cognitive abilities."
   },
   {
     id: 28,
-    question: "Jeff shows strong emotional biases. What should the advisor do?",
+    question: "Jeff is a new client. He is 50 years old with modest savings in the low six figures, and want to invest his portfolio to ensure that he can retire comfortably at age 65. In his meeting with jeff, the advisor uncovered some of Jeff's biases. Jeff displayed several strong emotional biases along with few weak cognitive biases. What should the advisor do?",
     options: [
       "The advisor should adapt to Jeff’s cognitive biases.",
       "The advisor should moderate and adapt to Jeff’s emotional biases.",
@@ -238,7 +238,7 @@ export const quizData = [
   },
   {
     id: 31,
-    question: "An employer wants a simple-to-understand pension plan that rewards participants based on years of service. Which plan?",
+    question: "An employer wants to offer his employees a pension plan. The goal is to provide a simple-to-understand plan that will reward all participants equally, regardless of their income level, and provide a retirement income based on a participant's years of service with the company. What plan will best meet this requirements?",
     options: [
       "Career average plan.",
       "Final average plan.",
@@ -250,7 +250,7 @@ export const quizData = [
   },
   {
     id: 32,
-    question: "A high-income client wants to minimize tax on investment income. Which mutual fund is best?",
+    question: "Your client, a high-income earner in a high marginal tax bracket, is seeking to minimize the amount of tax he pays on investment income while continuing to invest in mutual funds. Which mutual fund would best meet this investment objective?",
     options: [
       "Money market fund.",
       "Foreign equity fund.",
@@ -262,7 +262,7 @@ export const quizData = [
   },
   {
     id: 33,
-    question: "Your client has $46,000 unused RRSP contribution room and contributes $15,000 this year. How much can he carry forward?",
+    question: "Your client has $46,000 unused RRSP contribution room and contributes $15,000 this year. How much RRSP contribution room can he carry forward?",
     options: ["$31,000", "$46,000", "$35,000", "$38,000"],
     correct: 0,
     feedback: "Any unused RRSP contribution room can be carried forward indefinitely. $46,000 - $15,000 = $31,000."
@@ -312,7 +312,7 @@ export const quizData = [
   },
  {
     "id": 38,
-    "question": "Calculate the 2-year simple return for the AAA Mutual Fund.\n\nAAA Mutual Fund Performance:\n\nYear | Price at Beginning | Distribution | Price at End | Simple 1-Yr Return\n---|---|---|---|---\n1st Year | $10.00 | $0.25 | $11.00 | 12.50%\n2nd Year | $11.00 | $0.25 | $10.20 | -5.00%",
+    "question": "Calculate the 2-year simple return for the AAA Mutual Fund.\n\n<table border='1' style='border-collapse: collapse; width: 100%; text-align: center; margin-top: 10px;'><thead><tr style='background-color: #f2f2f2;'><th>Year</th><th>Price at Beginning</th><th>Distribution</th><th>Price at End</th><th>Simple 1-Yr Return</th></tr></thead><tbody><tr><td>1st Year</td><td>$10.00</td><td>$0.25</td><td></td><td>12.50%</td></tr><tr><td>2nd Year</td><td>$11.00</td><td>$0.25</td><td>$10.20</td><td>-5.00%</td></tr></tbody></table>",
     "options": ["8%", "7%", "-3%", "3%"],
     "correct": 1,
     "feedback": "Return = (Price at the end of the period + cash flow earned during the period - Price at the beginning of the period) / Price at the beginning of the period. ($10.20 + $0.50 - $10.00) / $10.00 = 7.00%."
@@ -374,7 +374,7 @@ export const quizData = [
   },
   {
     "id": 44,
-    "question": "Sonya is concerned about a market pullback. Which strategy is most appropriate?",
+    "question": "Sonya, a mutul fund manager for Drake Financial has had a stellar year in managing their Canadian equity portfolio and has outperformed the benchmark by over 200 basis points. She is now concerned that within the last couple of months of this calendar year that the Canadian equity market is due for 10 to 15% pullback. Which Investment strategy would be most appropriate for her to implement for the last couple of months of the year to offset the market correction?",
     "options": [
       "Buy put options on the iShares S&P/TSX 60 Index Fund.",
       "Buy call options on the iShares S&P/TSX 60 Index Fund.",
@@ -398,7 +398,7 @@ export const quizData = [
   },
   {
     "id": 46,
-    "question": "The Optima Equity Fund has a beta of 1.4. What is the most accurate description?",
+    "question": "The Optima Equity Fund has a beta of 1.4. What is the most accurate way to describe the Optima Equity Fund's relationship to the market as a whole?",
     "options": [
       "If the market goes down by 5%, the Optima Fund should go down by 5.7%.",
       "If the market goes up by 5%, the Optima fund should go up by 7%.",
@@ -410,14 +410,14 @@ export const quizData = [
   },
   {
     "id": 47,
-    "question": "A portfolio manager first analyzes a variety of asset mixes to determine an optimal portfolio and then adjusts by monitoring and rebalancing. What is this process called?",
+    "question": "A portfolio manager first analyzes a variety of asset mixes to determine an optimal portfolio and then adjusts the mix by monitoring and rebalancing. What is the name for the process the portfolio manager is following?",
     "options": ["Strategic asset allocation.", "Sector weighting.", "Market timing.", "Passive management."],
     "correct": 0,
     "feedback": "This is called Strategic Asset Allocation."
   },
   {
     "id": 48,
-    "question": "Rank the decisions made by a portfolio manager in order of importance.",
+    "question": "Rank the decisions made by a portfolio manager in order of importance for the success of the portfolio.",
     "options": [
       "Security selection, sector weighting, asset allocation.",
       "Asset allocation, sector weighting, security selection.",
@@ -467,7 +467,7 @@ export const quizData = [
   },
   {
     "id": 53,
-    "question": "What criteria does the independent review committee use to determine if a potential conflict of interest should be approved?",
+    "question": "What criteria does the independent review committee use to determine if a potential conflict of interest, such as inter-fund trading, should be approved?",
     "options": [
       "Will the action contravene National Instrument 81-102?",
       "Will the action contravene a unitholder's statutory rights?",
@@ -574,7 +574,7 @@ export const quizData = [
   },
   {
     "id": 64,
-    "question": "Interest rates are rising and the stock market is volatile. What should you do with a balanced fund (50% bonds / 50% equities)?",
+    "question": "You are the portfolio manager for the ABC Balanced Fund. Interest rates are going up; the stock market has been very volatile recently and is forecast to continue that way for the next tow quarters. What changes, if any , will you make to your current asset allocation of 50% bonds and 50% equities?",
     "options": [
       "Temporarily move a significant amount into money market securities.",
       "None - the fund is balanced.",
@@ -617,7 +617,7 @@ export const quizData = [
   },
   {
     "id": 68,
-    "question": "What type of managed fund allows greater use of short sales, leverage, and derivatives compared to mutual funds?",
+    "question": "What type of managed fund, recently introduced to Canada, is allowed greater use of short sales, leverage and derivatives compared to mutual funds, but not to the same extent as hedge funds?",
     "options": ["Principal-protected notes.", "Liquid alts.", "Private equity.", "Closed-end discretionary fund."],
     "correct": 1,
     "feedback": "Liquid alternatives (Liquid alts) allow greater use of these strategies."
@@ -664,7 +664,7 @@ export const quizData = [
   },
 {
     "id": 74,
-    "question": "You compare the performance of ABC Equity Fund and XYZ Equity Fund to their benchmark. Indicate the correct statement.\n\n| | Return Year 1 | Return Year 2 | Return Year 3 | 3 Year Compound Return |\n|---|---|---|---|---|\n| Benchmark | -2.0% | 12.6% | 20.6% | 10.0% |\n| ABC Equity Fund | -10.0% | 16.0% | 24.0% | 9.0% |\n| XYZ Equity Fund | 8.0% | 9.0% | 10.0% | 9.0% |",
+    "question": "You compare the performance of ABC Equity Fund and XYZ Equity Fund to their benchmark. Indicate the correct statement.\n\n<table border='1' style='border-collapse: collapse; width: 100%; text-align: center; margin-top: 10px;'><thead><tr style='background-color: #f2f2f2;'><th></th><th>Return Year 1</th><th>Return Year 2</th><th>Return Year 3</th><th>3 Year Compound Return</th></tr></thead><tbody><tr><td style='text-align: left; padding: 8px;'><strong>Benchmark</strong></td><td>-2.00%</td><td>12.60%</td><td>20.60%</td><td>10.00%</td></tr><tr><td style='text-align: left; padding: 8px;'><strong>ABC Equity Fund</strong></td><td>-10.00%</td><td>16.00%</td><td>24.00%</td><td>9.00%</td></tr><tr><td style='text-align: left; padding: 8px;'><strong>XYZ Equity Fund</strong></td><td>8.00%</td><td>9.00%</td><td>10.00%</td><td>9.00%</td></tr></tbody></table>",
     "options": [
       "Fund XYZ offered less protection on the downside.",
       "Fund ABC showed greater consistency in its simple annual returns.",

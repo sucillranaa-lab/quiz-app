@@ -42,6 +42,42 @@ QuizApp/
     └── helpers.js            # Utility functions (getOptionLetter, calculateScore, etc.)
 ```
 
+## Environment
+
+The app supports two environments via the `EXPO_PUBLIC_APP_ENV` environment variable (Expo SDK 49+ automatically exposes `EXPO_PUBLIC_*` vars to the client):
+
+| Mode | Command | Dev Features |
+|------|---------|-------------|
+| **Development** | `EXPO_PUBLIC_APP_ENV=development npx expo start --web` | Shows "Dev Tools" on quiz cards with "Show All Questions" |
+| **Production** (default) | `npx expo start --web` | All dev features hidden. Same as deployed build. |
+
+When `EXPO_PUBLIC_APP_ENV` is not set, the app **defaults to production** — this ensures deployed builds never expose dev features.
+
+### Running in Development Mode
+
+```bash
+# Web
+EXPO_PUBLIC_APP_ENV=development npx expo start --web
+
+# iOS
+EXPO_PUBLIC_APP_ENV=development npx expo start --ios
+
+# Android
+EXPO_PUBLIC_APP_ENV=development npx expo start --android
+```
+
+### Building for Production
+
+Production builds always run with `EXPO_PUBLIC_APP_ENV` unset, so the app defaults to production mode.
+
+```bash
+# Export for web deployment (always production)
+npx expo export --platform web
+
+# Or for store builds
+npx eas build --platform all
+```
+
 ## Requirements
 
 - Node.js 18+ (Node.js 20+ recommended)

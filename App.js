@@ -9,6 +9,7 @@ import QuizScreen from './screens/QuizScreen';
 import ResultsScreen from './screens/ResultsScreen';
 import ReviewScreen from './screens/ReviewScreen';
 import AddQuizScreen from './screens/AddQuizScreen';
+import AllQuestionsScreen from './screens/AllQuestionsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Results" component={ResultsScreen} />
           <Stack.Screen name="Review" component={ReviewScreen} />
           <Stack.Screen name="AddQuiz" component={AddQuizScreen} />
+          <Stack.Screen name="AllQuestions" component={AllQuestionsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

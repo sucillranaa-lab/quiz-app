@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from './ui';
-import { BookOpen, Clock, Play, RotateCcw, Award, ChevronRight } from 'lucide-react-native';
+import { BookOpen, Clock, Play, RotateCcw, Award, ChevronRight, ChevronDown, Eye } from 'lucide-react-native';
 import { getAnsweredCount, getQuizProgressPercent } from '../utils/helpers';
 
 const COLORS = [
@@ -20,12 +20,13 @@ function getColorScheme(title) {
   return COLORS[Math.abs(hash) % COLORS.length];
 }
 
-export default function QuizCard({ quiz, questionCount, progress, onStart, onResume, onRestart }) {
+export default function QuizCard({ quiz, questionCount, progress, onStart, onResume, onRestart, isDev, onShowAll }) {
   const answeredCount = getAnsweredCount(progress?.answers || {});
   const progressPercent = getQuizProgressPercent(questionCount, progress);
   const hasProgress = Boolean(progress);
   const attemptCount = progress?.selectedCount || questionCount;
   const scheme = getColorScheme(quiz.title);
+  const [showDevTools, setShowDevTools] = useState(false);
 
   return (
     <View className={`bg-white rounded-2xl mb-5 shadow-sm border border-slate-200 border-l-4 ${scheme.border} overflow-hidden`}>
@@ -121,6 +122,37 @@ export default function QuizCard({ quiz, questionCount, progress, onStart, onRes
 
         <ChevronRight size={18} color="#cbd5e1" />
       </View>
+
+      {/* Dev Tools — only visible in development mode */}
+      {isDev && (
+        <View className="border-t border-dashed border-amber-200">
+          <TouchableOpacity
+            onPress={() => setShowDevTools(!showDevTools)}
+            activeOpacity={0.7}
+            className="flex-row items-center justify-between px-5 py-3 bg-amber-50/50"
+          >
+            <Text className="text-xs font-bold text-amber-700 uppercase tracking-wider">Dev Tools</Text>
+            {showDevTools ? (
+              <ChevronDown size={16} color="#b45309" />
+            ) : (
+              <ChevronRight size={16} color="#b45309" />
+            )}
+          </TouchableOpacity>
+
+          {showDevTools && (
+            <View className="px-5 pb-4 pt-2 bg-amber-50/30">
+              <TouchableOpacity
+                onPress={onShowAll}
+                activeOpacity={0.85}
+                className="flex-row items-center justify-center py-2.5 px-4 bg-amber-100 border border-amber-300 rounded-lg"
+              >
+                <Eye size={16} color="#b45309" />
+                <Text className="ml-2 text-sm font-semibold text-amber-800">Show All Questions</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+      )}
     </View>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from './ui';
 import OptionButton from './OptionButton';
+import RichQuestionText from './HtmlTable';
 
 export default function QuestionCard({ question, questionNumber, totalQuestions, selectedAnswer, onSelectAnswer }) {
   return (
@@ -9,9 +10,10 @@ export default function QuestionCard({ question, questionNumber, totalQuestions,
         <Text className="text-xs font-bold text-teal-700 uppercase mb-3">
           Question {questionNumber} of {totalQuestions}
         </Text>
-        <Text className="text-2xl font-bold text-slate-950 leading-8">
-          {question.questionText}
-        </Text>
+        <RichQuestionText
+          text={question.questionText}
+          textClassName="text-2xl font-bold text-slate-950 leading-8"
+        />
       </View>
 
       <View className="gap-3">

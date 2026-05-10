@@ -81,6 +81,11 @@ export const getQuestionsByQuizId = async (quizId) => {
   return db.getAllFromIndex('questions', 'quizId', quizId);
 };
 
+export const getAllQuestions = async () => {
+  const db = await initDB();
+  return db.getAll('questions');
+};
+
 export const addQuestion = async (quizId, questionText, options, correctIndex, feedback) => {
   const db = await initDB();
   const id = await db.add('questions', {
@@ -157,7 +162,7 @@ export const saveProgress = async (quizId, currentIndex, answers, selectedCount)
   }
 };
 
-export const completeQuiz = async (quizId, score, selectedCount) => {
+export const completeQuiz = async (quizId, score, selectedCount, elapsedSeconds) => {
   const db = await initDB();
   const existing = await getProgressByQuizId(quizId);
 
@@ -167,6 +172,7 @@ export const completeQuiz = async (quizId, score, selectedCount) => {
       selectedCount: selectedCount || existing.selectedCount,
       completedAt: new Date().toISOString(),
       score,
+      elapsedSeconds,
       updatedAt: new Date().toISOString()
     });
     return existing.id;
@@ -179,6 +185,7 @@ export const completeQuiz = async (quizId, score, selectedCount) => {
     selectedCount,
     completedAt: new Date().toISOString(),
     score,
+    elapsedSeconds,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   });

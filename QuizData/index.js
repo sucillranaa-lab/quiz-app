@@ -3,8 +3,10 @@
 
 import { quizData } from './quizdataIFIC1.js';
 import { IFIC_Practice_Test2 } from './quizdataIFIC2.js';
+import { IFIC_Practice_Numerical } from './quizdataIFICNumerical.js';
 
 export const quizSources = [
   { name: 'IFIC Practice Test 1', data: quizData },
-  { name: 'IFIC Practice Test 2', data: IFIC_Practice_Test2 }
+  { name: 'IFIC Practice Test 2', data: IFIC_Practice_Test2 },
+  { name: 'IFIC Practice Numericals', data: IFIC_Practice_Numerical }
 ];

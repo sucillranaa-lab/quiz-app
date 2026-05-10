@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, View, Text, TouchableOpacity, SafeAreaView } from '../components/ui';
-import { Award, CheckCircle2, ClipboardList, Eye, Home, XCircle } from 'lucide-react-native';
+import { Award, CheckCircle2, ClipboardList, Clock, Eye, Home, XCircle } from 'lucide-react-native';
 import { getLatestProgressByQuizId, getQuiz, getQuestionsByQuizId } from '../db/database';
+import { getRandomQuizData } from '../utils/randomQuizStore';
+
+const formatTime = (totalSeconds) => {
+  if (!totalSeconds) return '--:--';
+  const hrs = Math.floor(totalSeconds / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  if (hrs > 0) {
+    return `${hrs}h ${mins}m ${secs}s`;
+  }
+  return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+};
 
 export default function ResultsScreen({ navigation, route }) {
-  const { quizId, score } = route.params;
+  const { quizId, score, elapsedSeconds, randomMode } = route.params;
   const [quiz, setQuiz] = useState(null);
   const [totalQuestions, setTotalQuestions] = useState(0);
 
@@ -14,6 +26,13 @@ export default function ResultsScreen({ navigation, route }) {
 
   const loadData = async () => {
     try {
+      if (randomMode) {
+        const data = getRandomQuizData();
+        setQuiz({ title: 'Random Quiz', id: 'random' });
+        setTotalQuestions(data?.selectedCount || 0);
+        return;
+      }
+
       const quizData = await getQuiz(quizId);
       const questions = await getQuestionsByQuizId(quizId);
       const progress = await getLatestProgressByQuizId(quizId);
@@ -70,20 +89,20 @@ export default function ResultsScreen({ navigation, route }) {
           <Text className="text-xl font-bold text-slate-950 mb-4">Quiz summary</Text>
 
           <View className="flex-row">
-            <View className="flex-1 items-center border-r border-slate-200">
-              <ClipboardList size={24} color="#0f766e" />
-              <Text className="text-2xl font-bold text-slate-950 mt-2">{totalQuestions}</Text>
-              <Text className="text-xs text-slate-500">Questions</Text>
-            </View>
-            <View className="flex-1 items-center border-r border-slate-200">
+            <View className="flex-1 items-center">
               <CheckCircle2 size={24} color="#16a34a" />
               <Text className="text-2xl font-bold text-slate-950 mt-2">{score}</Text>
               <Text className="text-xs text-slate-500">Correct</Text>
             </View>
-            <View className="flex-1 items-center">
+            <View className="flex-1 items-center border-x border-slate-200">
               <XCircle size={24} color="#dc2626" />
               <Text className="text-2xl font-bold text-slate-950 mt-2">{incorrect}</Text>
               <Text className="text-xs text-slate-500">Incorrect</Text>
+            </View>
+            <View className="flex-1 items-center">
+              <Clock size={24} color="#0f766e" />
+              <Text className="text-2xl font-bold text-slate-950 mt-2">{formatTime(elapsedSeconds)}</Text>
+              <Text className="text-xs text-slate-500">Time</Text>
             </View>
           </View>
 
@@ -102,7 +121,7 @@ export default function ResultsScreen({ navigation, route }) {
 
       <View className="p-6 gap-3 bg-white border-t border-slate-200">
         <TouchableOpacity
-          onPress={() => navigation.navigate('Review', { quizId })}
+          onPress={() => navigation.navigate('Review', { quizId, randomMode })}
           activeOpacity={0.88}
           className="bg-teal-700 py-4 rounded-2xl flex-row items-center justify-center gap-2"
         >

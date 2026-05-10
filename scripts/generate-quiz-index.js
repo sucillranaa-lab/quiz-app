@@ -35,7 +35,8 @@ for (const file of files) {
   const content = fs.readFileSync(filePath, 'utf-8');
 
   // Extract the exported constant name (e.g., "quizData", "IFIC_Practice_Test2")
-  const exportMatch = content.match(/export\s+const\s+(\w+)/);
+  // Skip the optional displayName export
+  const exportMatch = content.match(/export\s+const\s+(?!displayName\b)(\w+)/);
   if (!exportMatch) {
     console.warn(`⚠ Skipping ${file}: no exported constant found`);
     continue;
@@ -43,20 +44,29 @@ for (const file of files) {
 
   const constName = exportMatch[1]; // e.g., "quizData" or "IFIC_Practice_Test2"
 
-  // Derive test name from filename
-  // quizdataIFIC1.js  →  strip "quizdata", split "IFIC1"  →  name:"IFIC", num:"1"  →  "IFIC Practice Test 1"
-  const baseName = file.replace('.js', '').replace(/^quizdata/, '');
-  const nameMatch = baseName.match(/^([A-Za-z_]+?)(\d*)$/);
-  const topicName = nameMatch ? nameMatch[1].replace(/_/g, ' ') : baseName;
-  const number = nameMatch && nameMatch[2] ? nameMatch[2] : '';
+  // Check for optional displayName export
+  const displayNameMatch = content.match(/export\s+const\s+displayName\s*=\s*['"]([^'"]+)['"]/);
 
-  // Clean up the topic name: replace underscores, ensure proper casing
-  const cleanTopic = topicName
-    .replace(/_/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let displayName;
+  if (displayNameMatch) {
+    displayName = displayNameMatch[1];
+  } else {
+    // Derive test name from filename
+    // quizdataIFIC1.js  →  strip "quizdata", split "IFIC1"  →  name:"IFIC", num:"1"  →  "IFIC Practice Test 1"
+    const baseName = file.replace('.js', '').replace(/^quizdata/, '');
+    const nameMatch = baseName.match(/^([A-Za-z_]+?)(\d*)$/);
+    const topicName = nameMatch ? nameMatch[1].replace(/_/g, ' ') : baseName;
+    const number = nameMatch && nameMatch[2] ? nameMatch[2] : '';
 
-  const displayName = number ? `${cleanTopic} Practice Test ${number}` : cleanTopic;
+    // Split on uppercase boundaries to form readable words: "IFICNumerical" → "IFIC Numerical"
+    const words = topicName
+      .replace(/([A-Z])([a-z])/g, ' $1$2')
+      .trim()
+      .split(/\s+/)
+      .join(' ');
+
+    displayName = number ? `${words} Practice Test ${number}` : words;
+  }
 
   imports.push(`import { ${constName} } from './${file}';`);
   entries.push(`  { name: '${displayName}', data: ${constName} }`);
