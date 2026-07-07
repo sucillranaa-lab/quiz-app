@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ActivityIndicator, RefreshControl } from 'react-native';
+import { ActivityIndicator, RefreshControl, Alert } from 'react-native';
 import { View, Text, ScrollView, SafeAreaView, TouchableOpacity } from '../components/ui';
 import { GraduationCap, BookOpen, FileText, ChevronRight, Shuffle } from 'lucide-react-native';
 
@@ -32,6 +32,7 @@ const seedDatabase = async () => {
 export default function HomeScreen({ navigation }) {
   const [quizzes, setQuizzes] = useState([]);
   const [quizData, setQuizData] = useState({});
+  const [selectedQuizIds, setSelectedQuizIds] = useState(new Set());
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -40,6 +41,7 @@ export default function HomeScreen({ navigation }) {
       await seedDatabase();
       const allQuizzes = await getAllQuizzes();
       setQuizzes(allQuizzes);
+      setSelectedQuizIds(new Set(allQuizzes.map(q => q.id)));
 
       const data = {};
       let totalQuestions = 0;
@@ -86,8 +88,27 @@ export default function HomeScreen({ navigation }) {
     navigation.navigate('Quiz', { quizId, startFresh: true });
   };
 
+  const handleToggleSelect = (quizId) => {
+    setSelectedQuizIds(prev => {
+      const next = new Set(prev);
+      if (next.has(quizId)) {
+        next.delete(quizId);
+      } else {
+        next.add(quizId);
+      }
+      return next;
+    });
+  };
+
   const handleRandomQuiz = () => {
-    navigation.navigate('Quiz', { quizId: 'random', startFresh: true, randomMode: true });
+    if (selectedQuizIds.size === 0) {
+      Alert.alert(
+        'Selection Required',
+        'Please select at least one Practice/Test to start a Random Quiz.'
+      );
+      return;
+    }
+    navigation.navigate('Quiz', { quizId: 'random', startFresh: true, randomMode: true, selectedQuizIds: Array.from(selectedQuizIds) });
   };
 
   const handleShowAll = (quiz) => {
@@ -108,6 +129,10 @@ export default function HomeScreen({ navigation }) {
 
   const totalQuestions = quizData._totalQuestions || 0;
   const totalExams = quizzes.length;
+  const selectedExams = selectedQuizIds.size;
+  const selectedQuestions = quizzes
+    .filter(q => selectedQuizIds.has(q.id))
+    .reduce((sum, q) => sum + (quizData[q.id]?.questionCount || 0), 0);
 
   return (
     <SafeAreaView className="flex-1 bg-slate-50">
@@ -205,6 +230,8 @@ export default function HomeScreen({ navigation }) {
                 onResume={quizData[quiz.id]?.progress ? () => handleResume(quiz.id) : null}
                 onRestart={quizData[quiz.id]?.progress ? () => handleRestart(quiz.id) : null}
                 onShowAll={() => handleShowAll(quiz)}
+                selected={selectedQuizIds.has(quiz.id)}
+                onToggleSelect={() => handleToggleSelect(quiz.id)}
               />
             ))}
 
@@ -223,7 +250,9 @@ export default function HomeScreen({ navigation }) {
                   <View className="flex-1">
                     <Text className="text-slate-950 text-lg font-bold">Random Quiz</Text>
                     <Text className="text-slate-500 text-sm mt-0.5">
-                      Random questions from all {totalExams} exam sets — {totalQuestions} total
+                      {selectedExams === totalExams
+                        ? `Random questions from all ${totalExams} exam sets — ${totalQuestions} total`
+                        : `Random questions from ${selectedExams} of ${totalExams} exam sets — ${selectedQuestions} total`}
                     </Text>
                   </View>
                 </View>

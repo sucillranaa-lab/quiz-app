@@ -44,3 +44,6 @@ temp/
 # Build
 dist/
 build/
+
+# Quiz Documents
+docs/IFC_Documents/

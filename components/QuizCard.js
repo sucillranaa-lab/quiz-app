@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from './ui';
-import { BookOpen, Clock, Play, RotateCcw, Award, ChevronRight, ChevronDown, Eye } from 'lucide-react-native';
+import { BookOpen, Clock, Play, RotateCcw, Award, ChevronRight, ChevronDown, Eye, Square, CheckSquare } from 'lucide-react-native';
 import { getAnsweredCount, getQuizProgressPercent } from '../utils/helpers';
 
 const COLORS = [
@@ -20,7 +20,7 @@ function getColorScheme(title) {
   return COLORS[Math.abs(hash) % COLORS.length];
 }
 
-export default function QuizCard({ quiz, questionCount, progress, onStart, onResume, onRestart, isDev, onShowAll }) {
+export default function QuizCard({ quiz, questionCount, progress, onStart, onResume, onRestart, isDev, onShowAll, selected = true, onToggleSelect }) {
   const answeredCount = getAnsweredCount(progress?.answers || {});
   const progressPercent = getQuizProgressPercent(questionCount, progress);
   const hasProgress = Boolean(progress);
@@ -32,7 +32,7 @@ export default function QuizCard({ quiz, questionCount, progress, onStart, onRes
     <View className={`bg-white rounded-2xl mb-5 shadow-sm border border-slate-200 border-l-4 ${scheme.border} overflow-hidden`}>
       {/* Main content */}
       <View className="px-5 pt-5 pb-4">
-        {/* Top row: icon + title + badge */}
+        {/* Top row: icon + title + badge + checkbox */}
         <View className="flex-row items-start mb-4">
           <View className={`w-12 h-12 ${scheme.icon} rounded-xl items-center justify-center mr-3.5 shadow-sm`}>
             <BookOpen size={22} color="white" />
@@ -51,6 +51,20 @@ export default function QuizCard({ quiz, questionCount, progress, onStart, onRes
               {hasProgress ? `${attemptCount} question attempt` : `${questionCount} questions`}
             </Text>
           </View>
+          {onToggleSelect && (
+            <TouchableOpacity
+              onPress={onToggleSelect}
+              activeOpacity={0.7}
+              className="ml-3 p-1 -mt-1"
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              {selected ? (
+                <CheckSquare size={24} color="#4f46e5" />
+              ) : (
+                <Square size={24} color="#94a3b8" />
+              )}
+            </TouchableOpacity>
+          )}
         </View>
 
         {/* Progress section */}

@@ -4,9 +4,45 @@
 import { quizData } from './quizdataIFIC1.js';
 import { IFIC_Practice_Test2 } from './quizdataIFIC2.js';
 import { IFIC_Practice_Numerical } from './quizdataIFICNumerical.js';
+import { IFIC_Chapter01 } from './quizdataIFIC_Ch01.js';
+import { IFIC_Chapter02 } from './quizdataIFIC_Ch02.js';
+import { IFIC_Chapter03 } from './quizdataIFIC_Ch03.js';
+import { IFIC_Chapter04 } from './quizdataIFIC_Ch04.js';
+import { IFIC_Chapter05 } from './quizdataIFIC_Ch05.js';
+import { IFIC_Chapter06 } from './quizdataIFIC_Ch06.js';
+import { IFIC_Chapter07 } from './quizdataIFIC_Ch07.js';
+import { IFIC_Chapter08 } from './quizdataIFIC_Ch08.js';
+import { IFIC_Chapter09 } from './quizdataIFIC_Ch09.js';
+import { IFIC_Chapter10 } from './quizdataIFIC_Ch10.js';
+import { IFIC_Chapter11 } from './quizdataIFIC_Ch11.js';
+import { IFIC_Chapter12 } from './quizdataIFIC_Ch12.js';
+import { IFIC_Chapter13 } from './quizdataIFIC_Ch13.js';
+import { IFIC_Chapter14 } from './quizdataIFIC_Ch14.js';
+import { IFIC_Chapter15 } from './quizdataIFIC_Ch15.js';
+import { IFIC_Chapter16 } from './quizdataIFIC_Ch16.js';
+import { IFIC_Chapter17 } from './quizdataIFIC_Ch17.js';
+import { IFIC_Chapter18 } from './quizdataIFIC_Ch18.js';
 
 export const quizSources = [
   { name: 'IFIC Practice Test 1', data: quizData },
   { name: 'IFIC Practice Test 2', data: IFIC_Practice_Test2 },
-  { name: 'IFIC Practice Numericals', data: IFIC_Practice_Numerical }
+  { name: 'IFIC Practice Numericals', data: IFIC_Practice_Numerical },
+  { name: 'IFIC Chapter 1 - Role of the MF Sales Rep', data: IFIC_Chapter01 },
+  { name: 'IFIC Chapter 2 - Overview of Canadian Financial Marketplace', data: IFIC_Chapter02 },
+  { name: 'IFIC Chapter 3 - Overview of Economics', data: IFIC_Chapter03 },
+  { name: 'IFIC Chapter 4 - Getting to Know the Client', data: IFIC_Chapter04 },
+  { name: 'IFIC Chapter 5 - Behavioural Finance', data: IFIC_Chapter05 },
+  { name: 'IFIC Chapter 6 - Tax and Retirement Planning', data: IFIC_Chapter06 },
+  { name: 'IFIC Chapter 7 - Types of Investment Products and How They Are Traded', data: IFIC_Chapter07 },
+  { name: 'IFIC Chapter 8 - Constructing Investment Portfolios', data: IFIC_Chapter08 },
+  { name: 'IFIC Chapter 9 - Understanding Financial Statements', data: IFIC_Chapter09 },
+  { name: 'IFIC Chapter 10 - The Modern Mutual Fund', data: IFIC_Chapter10 },
+  { name: 'IFIC Chapter 11 - Conservative Mutual Fund Products', data: IFIC_Chapter11 },
+  { name: 'IFIC Chapter 12 - Riskier Mutual Fund Products', data: IFIC_Chapter12 },
+  { name: 'IFIC Chapter 13 - Alternative Managed Products', data: IFIC_Chapter13 },
+  { name: 'IFIC Chapter 14 - Understanding Mutual Fund Performance', data: IFIC_Chapter14 },
+  { name: 'IFIC Chapter 15 - Selecting a Mutual Fund', data: IFIC_Chapter15 },
+  { name: 'IFIC Chapter 16 - Mutual Fund Fees and Services', data: IFIC_Chapter16 },
+  { name: 'IFIC Chapter 17 - Mutual Fund Dealer Regulation', data: IFIC_Chapter17 },
+  { name: 'IFIC Chapter 18 - Applying Ethical Standards', data: IFIC_Chapter18 }
 ];

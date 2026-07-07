@@ -64,7 +64,14 @@ export default function QuizScreen({ navigation, route }) {
     try {
       if (randomMode) {
         clearRandomQuizData();
-        const allQuestionsData = await getAllQuestions();
+        let allQuestionsData = await getAllQuestions();
+
+        // Filter by selected quiz IDs if provided
+        const selectedIds = route.params?.selectedQuizIds;
+        if (selectedIds && selectedIds.length > 0) {
+          allQuestionsData = allQuestionsData.filter(q => selectedIds.includes(q.quizId));
+        }
+
         const shuffled = shuffleArray(allQuestionsData);
         setQuiz({ title: 'Random Quiz', id: 'random' });
         setAllQuestions(shuffled);
